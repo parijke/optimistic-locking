@@ -29,7 +29,7 @@ class ContactCrudController extends AbstractCrudController
         try { 
             parent::updateEntity($entityManager, $entityInstance);
         } catch (OptimisticLockException) {
-            $this->addFlash("error", 'This record has been changed in the meantime');
+            $this->addFlash('danger', 'This record has been changed in the meantime');
         }
     }
 }

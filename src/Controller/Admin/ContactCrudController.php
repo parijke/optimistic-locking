@@ -26,9 +26,8 @@ class ContactCrudController extends AbstractCrudController
 
     public function updateEntity(EntityManagerInterface $entityManager, $entityInstance): void
     {
-        try {
-            $entityManager->persist($entityInstance);
-            $entityManager->flush();
+        try { 
+            parent::updateEntity($entityManager, $entityInstance);
         } catch (OptimisticLockException) {
             $this->addFlash("error", 'This record has been changed in the meantime');
         }
